@@ -10,7 +10,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 // handle errors
-app.use((err: ServerError, req: Request, res: Response, next: NextFunction) => {
+app.use((err: ServerError, req: Request, res: Response) => {
 	return res.status(err.status ?? 500).json({
 		message: err.status ? err.message : "An error occured.",
 	});
